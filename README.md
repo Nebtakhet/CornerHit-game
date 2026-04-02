@@ -13,21 +13,7 @@
 You're trapped inside a glass box. A ball bounces endlessly around your arena. Your mission? **Time your hits perfectly to send the ball into the corners and shatter the glass!** Each corner hit breaks a section of your prison, gradually expanding your freedom. After 5 successful corner hits, the glass shatters completely and you're finally free!
 
 ```
-╔════════════════════════════════════╗
-║  🔷 CORNER!                        ║
-║    ▲                               ║
-║    │  ●  ↙  (Ball bouncing)        ║
-║    │  ↓   ↙                        ║
-║ ═════════════════════ ← glass box  ║
-║ ║                 ║                ║
-║ ║     [PLAYER]    ║                ║
-║ ║  ███ | ● | ███  ║  (You hit!)   ║
-║ ║  SPD   HIT  ATK  ║                ║
-║ ║                 ║                ║
-║ ║                 ║                ║
-║ ═════════════════════                ║
-║  🔷 CORNER!                        ║
-╚════════════════════════════════════╝
+
 
 Stage 1 (First hit)  →  Stage 2  →  Stage 3  →  Stage 4  →  Stage 5  →  FREEDOM! 🎉
 ```
