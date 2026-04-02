@@ -10,25 +10,26 @@
 
 ### The Premise
 
-You're trapped inside a series of shrinking glass boxes. A ball bounces endlessly around your arena. Your mission? **Hit the ball toward the corners to shatter the glass and escape!** Each corner hit breaks a section of your prison, and after enough hits, you'll finally be set free.
+You're trapped inside a glass box. A ball bounces endlessly around your arena. Your mission? **Time your hits perfectly to send the ball into the corners and shatter the glass!** Each corner hit breaks a section of your prison, gradually expanding your freedom. After 5 successful corner hits, the glass shatters completely and you're finally free!
 
 ```
-┌─────────────────────────────────────┐
-│                                     │
-│         ◆ (Ball)                   │
-│      ↙  ↓  ↙                        │
-│     ┃   ┃   ┃                       │
-│     ┃ ███   ┃   ← Hit the ball!    │
-│     ┃ ┃P┃   ┃                       │
-│     ┃ ███   ┃                       │
-│     ┃   ┃   ┃                       │
-│     ╱   ┃   ╱                       │
-│    ┌─────────────────────────────┐  │  ← Corner hit!
-│    │ (P) Player                  │  │     🔨 CRACK! 💥
-│    │ [Glass Box Breaks]          │  │
-│    └─────────────────────────────┘  │
-│                                     │
-└─────────────────────────────────────┘
+╔════════════════════════════════════╗
+║  🔷 CORNER!                        ║
+║    ▲                               ║
+║    │  ●  ↙  (Ball bouncing)        ║
+║    │  ↓   ↙                        ║
+║ ═════════════════════ ← glass box  ║
+║ ║                 ║                ║
+║ ║     [PLAYER]    ║                ║
+║ ║  ███ | ● | ███  ║  (You hit!)   ║
+║ ║  SPD   HIT  ATK  ║                ║
+║ ║                 ║                ║
+║ ║                 ║                ║
+║ ═════════════════════                ║
+║  🔷 CORNER!                        ║
+╚════════════════════════════════════╝
+
+Stage 1 (First hit)  →  Stage 2  →  Stage 3  →  Stage 4  →  Stage 5  →  FREEDOM! 🎉
 ```
 
 ---
@@ -39,40 +40,43 @@ You're trapped inside a series of shrinking glass boxes. A ball bounces endlessl
 
 | Feature | Description |
 |---------|-------------|
-| 🎯 **Player Control** | Move left and right to position yourself under the ball |
+| 🎯 **Movement** | Move left and right to position yourself under the ball |
+| 🦘 **Jump** | Jump up to reach higher positions and improve your timing |
+| ⚡ **Hit Mechanic** | Strike the ball with perfect timing to send it toward corners |
 | 💫 **Ball Physics** | Realistic ball dynamics with bouncing and momentum |
-| 🔨 **Hit System** | Time your hits perfectly to send the ball toward corners |
-| 📦 **Arena Progression** | 5 stages of increasingly smaller boxes to break |
+| 📦 **Arena Progression** | 5 stages - each corner hit breaks glass and expands your arena |
 | 🎥 **Camera Effects** | Dynamic camera shake when boxes break |
-| ⌚ **Pause System** | Press `ESC` to pause/unpause the game |
+| ⏸️ **Pause System** | Press `ESC` to pause/unpause the game |
 | 🔄 **Restart** | Press `R` to restart (when game over) |
 
 ### Win Condition
 
-🏆 **Escape all 5 stages!** Break enough corners to escape your glass prison and achieve victory.
+🏆 **Hit all 4 corners 5 times!** Hit all 4 corners of the box across 5 stages to progressively shatter the glass and gain freedom.
 
-### Game Stages
+### Stage Progression
 
 ```
-Stage 1:  [████████████████]  ← Largest arena
-Stage 2:  [█████████████]
-Stage 3:  [██████████]
-Stage 4:  [███████]
-Stage 5:  [████]     ← Smallest arena
+Corner Hit 1  →  Corner Hit 2  →  Corner Hit 3  →  Corner Hit 4  →  FREEDOM!
+   Stage 1            Stage 2           Stage 3          Stage 4        Stage 5
 ```
 
-Each corner hit reduces the box size, creating an increasingly challenging experience!
+Each stage increases the arena size as more glass breaks, but the ball moves faster and positioning becomes more critical!
 
 ---
 
 ## 🕹️ Controls
 
+### Keyboard & Mouse
+
 | Input | Action |
 |-------|--------|
-| `← / →` or `A / D` | Move player left/right |
-| `LEFT MOUSE` | Hit the ball |
+| `A` / `D` or `← / →` | Move left/right |
+| `W` / `↑` | Jump |
+| `SPACE` | Hit the ball |
+| `LEFT MOUSE` | Hit the ball (alternative) |
 | `ESC` | Pause/Resume |
 | `R` | Restart game (when game over) |
+
 
 ---
 
@@ -165,18 +169,18 @@ CornerHit/
 1. **Start the Game** - Launch the game in the MainScene
 2. **Watch the Ball** - Observe the ball's movement pattern
 3. **Position Yourself** - Move your player to intercept the ball
-4. **Time Your Hit** - Hit the ball to send it toward a corner
-5. **Aim for Corners** - Each corner hit breaks glass and shrinks the box
-6. **Progress Through Stages** - Complete 5 stages to escape!
+4. **Time Your Hit** - Use `SPACE` or `LEFT MOUSE` to hit the ball toward a corner
+5. **Aim for Corners** - Each corner hit breaks glass and expands your arena
+6. **Progress Through Stages** - Complete 5 corner hits to break free!
 7. **Victory!** - You're free! 🎉
 
 ### Pro Tips 🎯
 
 - 💡 **Predict Bounces** - Watch the ball's trajectory to anticipate corners
-- ⚡ **Perfect Timing** - Hit the ball at the right angle for maximum edge hits
-- 🎯 **Corner Priority** - Focus on hitting corners, not just bouncing the ball
+- ⚡ **Perfect Timing** - Hit the ball at the right angle for maximum hits
+- 🎯 **Corner Priority** - Focus on hitting the 4 corners, not just bouncing the ball
 - 👀 **Watch the Shake** - Camera effects indicate successful corner hits
-- 🔄 **Learn the Pattern** - The arena gets smaller, so adapt your strategy!
+- 🔄 **Stay Adaptable** - As the arena expands, positioning becomes more tricky!
 
 ---
 
