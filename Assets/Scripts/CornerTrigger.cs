@@ -6,7 +6,7 @@ public class CornerTrigger : MonoBehaviour
 	{
 		if (collision.CompareTag("Ball"))
 		{
-			ArenaManager arena = FindAnyObjectByType<ArenaManager>();
+			ArenaManager arena = ArenaManager.Instance;
 			if (arena)
 				arena.OnBallHitCorner();
 		}
