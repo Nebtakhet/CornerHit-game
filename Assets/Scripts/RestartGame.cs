@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class RestartGame : MonoBehaviour
 {
-    void Update()
+    public void RestartCurrentScene()
     {
-        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
-		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-		}
+        GameManager gameManager = GameManager.Instance;
+        if (gameManager != null)
+        {
+            gameManager.RestartLevel();
+        }
     }
 }
