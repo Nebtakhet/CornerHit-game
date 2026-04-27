@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ArenaManager : MonoBehaviour
 {
+	public static ArenaManager Instance { get; private set; }
+
 	[Header("Arena")]
 	public float arenaWidth = 16f;
 	public float arenaHeight = 9f;
@@ -10,7 +13,8 @@ public class ArenaManager : MonoBehaviour
 	[Header("Growth")]
 	public int stage = 0;
 	public int maxStages = 5;
-	public float withGrowth = 4f;
+	[FormerlySerializedAs("withGrowth")]
+	public float widthGrowth = 4f;
 	public float heightGrowth = 2.25f;
 
 	[Header("References")]
@@ -28,6 +32,11 @@ public class ArenaManager : MonoBehaviour
 	public float camPadding = 1f;
 
 	private bool canTriggerCorner = true;
+
+	private void Awake()
+	{
+		Instance = this;
+	}
 
     void Start()
     {
@@ -61,7 +70,7 @@ public class ArenaManager : MonoBehaviour
 			return;
 		}
 
-		arenaWidth += withGrowth;
+		arenaWidth += widthGrowth;
 		arenaHeight += heightGrowth;
 
 		if (mainCamera != null)
@@ -188,8 +197,6 @@ public class ArenaManager : MonoBehaviour
 		cornerBL.gameObject.SetActive(false);
 		cornerBR.gameObject.SetActive(false);
 
-		Debug.Log("Arena fully broken! Good job!");
-
 		GameManager gameManager = GameManager.Instance;
 		if (gameManager)
 		{
@@ -202,9 +209,4 @@ public class ArenaManager : MonoBehaviour
 			uiManager.ShowGameOverPanel();
 		}
 	}
-
-    void Update()
-    {
-        
-    }
 }
