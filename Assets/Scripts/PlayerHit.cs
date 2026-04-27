@@ -10,7 +10,10 @@ public class PlayerHit : MonoBehaviour
 
     void Update()
     {
-		if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+		bool keyboardHit = Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame;
+		bool mouseHit = Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
+
+		if (keyboardHit || mouseHit)
 		{
 			Collider2D hitBall = Physics2D.OverlapBox(hitPoint.position, hotBoxSize, 0f, ballLayer);
 			if (hitBall != null)
