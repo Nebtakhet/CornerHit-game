@@ -250,3 +250,16 @@ For questions or issues, please open an issue in the repository.
 
 Good luck breaking free, player! 🚀
 
+---
+
+## 🛠️ Developer Notes (Updated)
+
+- **Input System**: This project uses the New Unity Input System. Key-driven gameplay and UI input are handled via `Keyboard.current`, `Mouse.current`, and `Gamepad.current` in scripts under `Assets/Scripts/`.
+- **Hit actions**: The hit action supports `SPACE`, `LEFT MOUSE`, and common gamepad buttons (east face button / right trigger). See `Assets/Scripts/PlayerHit.cs` for the exact bindings.
+- **Pause & Restart**: Press `ESC` to toggle pause, and press `R` to restart when the game is over. Pause/restart logic is centralized in `Assets/Scripts/GameManager.cs`.
+- **Pause panel prefab**: A convenience editor tool creates a `PausePanel.prefab` (Canvas + translucent panel + Resume/Restart buttons): open Unity and run the menu command `Tools → Create Pause Panel Prefab`. This writes `Assets/Prefabs/PausePanel.prefab`.
+- **Wiring pause UI**: After adding the prefab to your scene, assign the pause panel instance to the `pausePanel` field on the `UIManager` component (select the `UIManager` GameObject). The prefab's buttons are wired to a small runtime helper `Assets/Scripts/PausePanelController.cs` which calls `GameManager`.
+- **Serialized field rename**: `Assets/Scripts/ArenaManager.cs` renamed the serialized field `withGrowth` → `widthGrowth` using `[FormerlySerializedAs]` to preserve inspector values.
+
+If you want, I can also instantiate and wire the prefab into `Assets/Scenes/MainScene.unity` automatically.
+
