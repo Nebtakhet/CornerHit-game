@@ -47,4 +47,24 @@ public class UIManager : MonoBehaviour
 		pausePanel.SetActive(isVisible);
 	}
 
+	// Called by Pause menu Resume button
+	public void OnResumeButton()
+	{
+		GameManager gm = GameManager.Instance;
+		if (gm != null)
+		{
+			gm.ResumeGame();
+		}
+	}
+
+	// Called by Pause menu Restart button
+	public void OnRestartButton()
+	{
+		GameManager gm = GameManager.Instance;
+		if (gm != null)
+		{
+			gm.RestartLevel();
+		}
+	}
+
 }
