@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+// Using legacy Input API for keyboard checks
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -63,12 +63,12 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Keyboard.current != null && IsGameOver && Keyboard.current.rKey.wasPressedThisFrame)
+		if (IsGameOver && Input.GetKeyDown(KeyCode.R))
 		{
 			RestartLevel();
 		}
 
-		if (Keyboard.current != null && !IsGameOver && Keyboard.current.escapeKey.wasPressedThisFrame)
+		if (!IsGameOver && Input.GetKeyDown(KeyCode.Escape))
 		{
 			if (IsGamePaused)
 			{
