@@ -52,14 +52,13 @@ Each stage increases the arena size as more glass breaks, but the ball moves fas
 
 ## 🕹️ Controls
 
-### Keyboard & Mouse
+### Keyboard
 
 | Input | Action |
 |-------|--------|
 | `A` / `D` or `← / →` | Move left/right |
 | `W` / `↑` | Jump |
 | `SPACE` | Hit the ball |
-| `LEFT MOUSE` | Hit the ball (alternative) |
 | `ESC` | Pause/Resume |
 | `R` | Restart game (when game over) |
 
@@ -155,7 +154,7 @@ CornerHit/
 1. **Start the Game** - Launch the game in the MainScene
 2. **Watch the Ball** - Observe the ball's movement pattern
 3. **Position Yourself** - Move your player to intercept the ball
-4. **Time Your Hit** - Use `SPACE` or `LEFT MOUSE` to hit the ball toward a corner
+4. **Time Your Hit** - Use `SPACE` to hit the ball toward a corner
 5. **Aim for Corners** - Each corner hit breaks glass and expands your arena
 6. **Progress Through Stages** - Complete 5 corner hits to break free!
 7. **Victory!** - You're free! 🎉
@@ -254,8 +253,8 @@ Good luck breaking free, player! 🚀
 
 ## 🛠️ Developer Notes (Updated)
 
-- **Input System**: This project uses the New Unity Input System. Key-driven gameplay and UI input are handled via `Keyboard.current`, `Mouse.current`, and `Gamepad.current` in scripts under `Assets/Scripts/`.
-- **Hit actions**: The hit action supports `SPACE`, `LEFT MOUSE`, and common gamepad buttons (east face button / right trigger). See `Assets/Scripts/PlayerHit.cs` for the exact bindings.
+- **Input System**: This project uses the New Unity Input System. Key-driven gameplay and UI input are handled via `Keyboard.current` (keyboard-only) in scripts under `Assets/Scripts/`.
+- **Hit actions**: The hit action supports `SPACE` only. See `Assets/Scripts/PlayerHit.cs` for the exact bindings.
 - **Pause & Restart**: Press `ESC` to toggle pause, and press `R` to restart when the game is over. Pause/restart logic is centralized in `Assets/Scripts/GameManager.cs`.
 - **Pause panel prefab**: A convenience editor tool creates a `PausePanel.prefab` (Canvas + translucent panel + Resume/Restart buttons): open Unity and run the menu command `Tools → Create Pause Panel Prefab`. This writes `Assets/Prefabs/PausePanel.prefab`.
 - **Wiring pause UI**: After adding the prefab to your scene, assign the pause panel instance to the `pausePanel` field on the `UIManager` component (select the `UIManager` GameObject). The prefab's buttons are wired to a small runtime helper `Assets/Scripts/PausePanelController.cs` which calls `GameManager`.
