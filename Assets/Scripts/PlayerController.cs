@@ -21,17 +21,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 		float keyboardInput = 0f;
-		if (Keyboard.current != null)
+		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 		{
-			if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
-			{
-				keyboardInput -= 1f;
-			}
+			keyboardInput -= 1f;
+		}
 
-			if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
-			{
-				keyboardInput += 1f;
-			}
+		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+		{
+			keyboardInput += 1f;
 		}
 
 		float gamepadInput = Gamepad.current != null ? Gamepad.current.leftStick.ReadValue().x : 0f;
@@ -39,8 +36,7 @@ public class PlayerController : MonoBehaviour
 
 		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
 
-		bool jumpPressed = (Keyboard.current != null &&
-			(Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame))
+		bool jumpPressed = (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
 			|| (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame);
 
 		if (isGrounded && jumpPressed)
