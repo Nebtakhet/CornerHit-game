@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+// Using Unity's legacy Input API for keyboard checks
 
 public class PlayerHit : MonoBehaviour
 {
@@ -10,11 +10,9 @@ public class PlayerHit : MonoBehaviour
 
 	void Update()
 	{
-		bool keyboardHit = Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame;
-		bool mouseHit = Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame;
-		bool gamepadHit = Gamepad.current != null && (Gamepad.current.buttonEast.wasPressedThisFrame || Gamepad.current.rightTrigger.wasPressedThisFrame);
+		bool keyboardHit = Input.GetKeyDown(KeyCode.Space);
 
-		if (keyboardHit || mouseHit || gamepadHit)
+		if (keyboardHit)
 		{
 			Collider2D hitBall = Physics2D.OverlapBox(hitPoint.position, hotBoxSize, 0f, ballLayer);
 			if (hitBall != null)
