@@ -257,6 +257,7 @@ Good luck breaking free, player! 🚀
 - **Hit actions**: The hit action supports `SPACE` only. See `Assets/Scripts/PlayerHit.cs` for the exact bindings.
 - **Pause & Restart**: Press `ESC` to toggle pause, and press `R` to restart when the game is over. Pause/restart logic is centralized in `Assets/Scripts/GameManager.cs`.
 - **Pause panel prefab**: A convenience editor tool creates a `PausePanel.prefab` (Canvas + translucent panel + Resume/Restart buttons): open Unity and run the menu command `Tools → Create Pause Panel Prefab`. This writes `Assets/Prefabs/PausePanel.prefab`.
+- **Responsive UI**: A runtime helper `Assets/Scripts/ResponsiveUI.cs` is provided to automatically apply the device `safeArea` and adapt UI when the resolution or safe area changes. Attach `ResponsiveUI` to a root UI `RectTransform` (usually the Canvas root or a top-level panel) so anchors update automatically for notches and dynamic resolutions.
 - **Wiring pause UI**: After adding the prefab to your scene, assign the pause panel instance to the `pausePanel` field on the `UIManager` component (select the `UIManager` GameObject). The prefab's buttons are wired to a small runtime helper `Assets/Scripts/PausePanelController.cs` which calls `GameManager`.
 - **Serialized field rename**: `Assets/Scripts/ArenaManager.cs` renamed the serialized field `withGrowth` → `widthGrowth` using `[FormerlySerializedAs]` to preserve inspector values.
 
