@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 			RestartLevel();
 		}
 
-		if (!IsGameOver && Input.GetKeyDown(KeyCode.Escape))
+		if (!IsGameOver && Input.GetKeyDown(KeyCode.Return))
 		{
 			if (IsGamePaused)
 			{
