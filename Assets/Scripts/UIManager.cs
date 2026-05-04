@@ -6,12 +6,13 @@ public class UIManager : MonoBehaviour
 	public static UIManager Instance { get; private set; }
 
 	public TextMeshProUGUI stageText;
-	public GameObject gameOverPanel;
-	public GameObject pausePanel;
+	public GameObject winText;
+	public GameObject restartText;
 
 	private void Awake()
 	{
 		Instance = this;
+		ShowGameOverPanel(false);
 		ShowPausePanel(false);
 	}
 
@@ -26,45 +27,25 @@ public class UIManager : MonoBehaviour
 		stageText.text = $"Stage: {currentStage}/{maxStages}";
 	}
 
-	public void ShowGameOverPanel()
+	public void ShowGameOverPanel(bool isVisible = true)
 	{
-		if (gameOverPanel == null)
+		if (winText == null)
 		{
-			Debug.LogWarning("UIManager: Game over panel reference is missing.");
+			Debug.LogWarning("UIManager: Win text reference is missing.");
 			return;
 		}
 
-		gameOverPanel.SetActive(true);
+		winText.SetActive(isVisible);
 	}
 
 	public void ShowPausePanel(bool isVisible)
 	{
-		if (pausePanel == null)
+		if (restartText == null)
 		{
 			return;
 		}
 
-		pausePanel.SetActive(isVisible);
-	}
-
-	// Called by Pause menu Resume button
-	public void OnResumeButton()
-	{
-		GameManager gm = GameManager.Instance;
-		if (gm != null)
-		{
-			gm.ResumeGame();
-		}
-	}
-
-	// Called by Pause menu Restart button
-	public void OnRestartButton()
-	{
-		GameManager gm = GameManager.Instance;
-		if (gm != null)
-		{
-			gm.RestartLevel();
-		}
+		restartText.SetActive(isVisible);
 	}
 
 }
